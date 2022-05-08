@@ -1,0 +1,75 @@
+无优化：
+进入目录：cd comp2008code/exp1/pow2
+创建O目录：mkdir O
+预编译：riscv64-linux-gnu-gcc -E pow2.c -o O/pow2.i
+编译&只含32位指令：riscv64-linux-gnu-gcc -S O/pow2.i -o O/pow2.s
+汇编：riscv64-linux-gnu-gcc -c O/pow2.s -o O/pow2.o -march=rv64g
+生成可执行文件：riscv64-linux-gnu-gcc pow2.c -o O/pow2 -static
+执行可执行文件：spike $(which pk) O/pow2
+反汇编：riscv64-linux-gnu-objdump -S O/pow2 > O/pow2.txt
+
+查看机器码：riscv64-linux-gnu-objdump -D O/pow2.o
+导出机器码：riscv64-linux-gnu-objdump -D O/pow2.o > O/pow2_O.txt
+
+纯享版：
+cd comp2008code/exp1/pow2
+mkdir O
+riscv64-linux-gnu-gcc -E pow2.c -o O/pow2.i
+riscv64-linux-gnu-gcc -S O/pow2.i -o O/pow2.s
+riscv64-linux-gnu-gcc -c O/pow2.s -o O/pow2.o -march=rv64g
+riscv64-linux-gnu-gcc pow2.c -o O/pow2 -static
+spike $(which pk) O/pow2
+riscv64-linux-gnu-objdump -S O/pow2 > O/pow2.txt
+riscv64-linux-gnu-objdump -D O/pow2.o
+riscv64-linux-gnu-objdump -D O/pow2.o > O/pow2_O.txt
+
+
+Og优化：
+进入目录：cd comp2008code/exp1/pow2
+创建Og目录：mkdir Og
+预编译：riscv64-linux-gnu-gcc -E pow2.c -o Og/pow2.i -Og
+编译&只含32位指令：riscv64-linux-gnu-gcc -S Og/pow2.i -o Og/pow2.s -Og
+汇编：riscv64-linux-gnu-gcc -c Og/pow2.s -o Og/pow2.o -march=rv64g -Og
+生成可执行文件：riscv64-linux-gnu-gcc pow2.c -o Og/pow2 -static
+执行可执行文件：spike $(which pk) Og/pow2
+反汇编：riscv64-linux-gnu-objdump -S Og/pow2 > Og/pow2.txt
+
+查看机器码：riscv64-linux-gnu-objdump -D Og/pow2.o
+导出机器码：riscv64-linux-gnu-objdump -D Og/pow2.o > Og/pow2_Og.txt
+
+纯享版：
+cd comp2008code/exp1/pow2
+mkdir Og
+riscv64-linux-gnu-gcc -E pow2.c -o Og/pow2.i -Og
+riscv64-linux-gnu-gcc -S Og/pow2.i -o Og/pow2.s -Og
+riscv64-linux-gnu-gcc -c Og/pow2.s -o Og/pow2.o -march=rv64g -Og
+riscv64-linux-gnu-gcc pow2.c -o Og/pow2 -static
+spike $(which pk) Og/pow2
+riscv64-linux-gnu-objdump -S Og/pow2 > Og/pow2.txt
+riscv64-linux-gnu-objdump -D Og/pow2.o
+riscv64-linux-gnu-objdump -D Og/pow2.o > Og/pow2_Og.txt
+
+Og优化 & 无伪指令：
+进入目录：cd comp2008code/exp1/pow2
+创建Og目录：mkdir Og
+预编译：riscv64-linux-gnu-gcc -E pow2.c -o Og/pow2.i -Og
+编译&只含32位指令：riscv64-linux-gnu-gcc -S Og/pow2.i -o Og/pow2.s -Og
+汇编：riscv64-linux-gnu-gcc -c Og/pow2.s -o Og/pow2.o -march=rv64g -Og
+生成可执行文件：riscv64-linux-gnu-gcc pow2.c -o Og/pow2 -static
+执行可执行文件：spike $(which pk) Og/pow2
+反汇编：riscv64-linux-gnu-objdump -S Og/pow2 > Og/pow2.txt
+
+查看机器码：riscv64-linux-gnu-objdump -D Og/pow2.o
+导出机器码：riscv64-linux-gnu-objdump -D Og/pow2.o > Og/pow2_Og.txt
+
+纯享版：
+cd comp2008code/exp1/pow2
+mkdir OgNone
+riscv64-linux-gnu-gcc -E pow2.c -o OgNone/pow2.i -Og
+riscv64-linux-gnu-gcc -S OgNone/pow2.i -o OgNone/pow2.s -Og
+riscv64-linux-gnu-gcc -c OgNone/pow2.s -o OgNone/pow2.o -march=rv64g -Og
+riscv64-linux-gnu-gcc pow2.c -o OgNone/pow2 -static
+spike $(which pk) OgNone/pow2
+riscv64-linux-gnu-objdump -S OgNone/pow2 > OgNone/pow2.txt
+riscv64-linux-gnu-objdump -D OgNone/pow2.o
+riscv64-linux-gnu-objdump -D -M no-aliases OgNone/pow2.o > OgNone/pow2_OgNone.txt
