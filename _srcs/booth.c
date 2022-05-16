@@ -304,21 +304,26 @@ void Booth(int x, int y)
 
     print("\n");
 
-    char XY[70] = {'\0'};
-    XYprint(XY, Z, Y, b);
-    printf("x*y's complement: %s\n", XY);
+    char XY_0[70] = {'\0'};
+    XYprint(XY_0, Z, Y, b);
+    printf("x*y's complement: %s\n", XY_0);
 
-    print2(XY, a + b + 2);
+    char XY_1[70] = {'\0'};
+    XYprint(XY_1, Z, Y, b);
+    print2(XY_1, a + b + 2);
 
-    deletePoint(XY);
+    char XY_2[70] = {'\0'};
+    XYprint(XY_2, Z, Y, b);
+    deletePoint(XY_2);
     char XYhex[70] = {'\0'};
-    Bs2Hs(XY, XYhex);
+    Bs2Hs(XY_2, XYhex);
     printf("convert to hex: %s", XYhex);
 }
 
 int main()
 {
     int x, y, n;
+    // 进制，表示转换: https://www.23bei.com/tool/56.html?
 
     printf("input x, y: ");
 
