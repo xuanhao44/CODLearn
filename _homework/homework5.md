@@ -43,9 +43,9 @@ DRAM 的刷新有哪三种方式？为什么要刷新？
 汉明码排序如下：
 
 | 二进制序号 |   1   |   2   |  3   |   4   |  5   |  6   |  7   |
-| ---------- | :---: | :---: | :--: | :---: | :--: | :--: | :--: |
-| 名称       | $C_1$ | $C_2$ |  1   | $C_4$ |  0   |  0   |  0   |
-| 配偶原则   |   1   |   1   |      |   0   |      |      |      |
+| :--------: | :---: | :---: | :--: | :---: | :--: | :--: | :--: |
+|    名称    | $C_1$ | $C_2$ |  1   | $C_4$ |  0   |  0   |  0   |
+|  配偶原则  |   1   |   1   |      |   0   |      |      |      |
 
 $$
 C_1 = 位_3 \oplus 位_5 \oplus 位_7 = 1 \oplus 0 \oplus 0 = 1 \\
@@ -85,9 +85,11 @@ $$
 
 纠错过程如下：
 $$
+\begin{equation} \begin{split}
 P_1 = 位_1 \oplus 位_3 \oplus 位_5 \oplus 位_7 = 0 无错 \\
 P_2 = 位_2 \oplus 位_3 \oplus 位_6 \oplus 位_7 = 1 有错 \\
 P_4 = 位_4 \oplus 位_5 \oplus 位_6 \oplus 位_7 = 1 有错
+\end{split} \end{equation}
 $$
 <img src="../_images/5.4.1.png" alt="5.4.1" style="zoom:75%;" />
 
@@ -97,9 +99,11 @@ $$
 
 纠错过程如下：
 $$
+\begin{equation} \begin{split}
 P_1 = 位_1 \oplus 位_3 \oplus 位_5 \oplus 位_7 = 1 无错 \\
 P_2 = 位_2 \oplus 位_3 \oplus 位_6 \oplus 位_7 = 1 有错 \\
 P_4 = 位_4 \oplus 位_5 \oplus 位_6 \oplus 位_7 = 1 有错
+\end{split} \end{equation}
 $$
 <img src="../_images/5.4.2.png" alt="5.4.2" style="zoom:75%;" />
 
